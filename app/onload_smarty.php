@@ -4,6 +4,7 @@
  * The script automatically executed when getSmarty() is called for the first time.
  * Use it to setup the engine or pass additional variables that are always needed.
  */
+
 function url($params, $smarty)
 {
   $action = '';

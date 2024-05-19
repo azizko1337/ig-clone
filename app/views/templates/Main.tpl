@@ -13,7 +13,7 @@
 <header class="header">
     <nav class="header__content">
         <div class="header__buttons">
-            <a href="index.html" class="header__home">
+            <a href="index" class="header__home">
                 <svg
                         width="104"
                         height="30"
@@ -80,12 +80,12 @@
         </div>
 
         <div class="header__buttons header__buttons--desktop">
-            <button class="profile-button">
+            <a href="user_show" class="profile-button">
                 <div class="profile-button__border"></div>
                 <div class="profile-button__picture">
                     <img src="assets/default-user.png" alt="User Picture" />
                 </div>
-            </button>
+            </a>
         </div>
     </nav>
 </header>
@@ -97,6 +97,11 @@
         </div>
 
         <section class="side-menu">
+            {foreach $msgs->getMessages() as $msg}
+                {strip}
+                    <li class="msg {if $msg->isError()}error{/if} {if $msg->isWarning()}warning{/if} {if $msg->isInfo()}info{/if}">{$msg->text}</li>
+                {/strip}
+            {/foreach}
             {block name="aside"}{/block}
                 <div class="side-menu__footer">
                     <div class="side-menu__footer-links">
