@@ -45,7 +45,7 @@ class LoginCtrl {
         if(App::getMessages()->isError()) return false;
 
         try{
-            $this->user_data = App::getDB()->get("users", ["id"],[
+            $this->user_data = App::getDB()->get("users", ["id", "nickname", "firstName", "lastName"],[
                 "nickname" => $this->form->nickname,
                 "password" => md5($this->form->password)
             ]);
@@ -64,7 +64,7 @@ class LoginCtrl {
             $roles = App::getDB()->select("user_role", ["role_name"], ["user_id" => $this->user_data["id"]]);
             if(is_null($roles)) {
                 Utils::addErrorMessage("Nie masz żadnej roli"); //useless, system will pass anyway
-                return false;                                           //cause return true
+                return true;                                           //cause return true
             };
 
             foreach($roles as $role){
@@ -75,8 +75,6 @@ class LoginCtrl {
             Utils::addErrorMessage("Nie udało się połączyć z bazą danych.");
         }
         return false;
-        RoleUtils::addRole("user");
-        return true;
     }
 
     public function action_login_show() {
@@ -85,6 +83,9 @@ class LoginCtrl {
     public function action_login() {
         if($this->validate() && $this->addRoles()){
             SessionUtils::store("id", $this->user_data["id"]);
+            SessionUtils::store("nickname", $this->user_data["nickname"]);
+            SessionUtils::store("firstName", $this->user_data["firstName"]);
+            SessionUtils::store("lastName", $this->user_data["lastName"]);
             App::getRouter()->redirectTo("index");
         }else{
             $this->form->password = "";
@@ -94,6 +95,10 @@ class LoginCtrl {
     }
     public function action_logout() {
         SessionUtils::remove("id"); //redundant?
+        SessionUtils::remove("nickname");
+        SessionUtils::remove("firstName");
+        SessionUtils::remove("lastName");
+
         $_SESSION = null;
         session_destroy();
         App::getRouter()->redirectTo('login_show');

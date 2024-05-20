@@ -141,6 +141,8 @@ class UserCtrl {
                         "firstName" => $this->form->firstName,
                         "lastName" => $this->form->lastName,
                         "email" => $this->form->email,
+                        "updatedAt" => time(),
+                        "updatedBy" => SessionUtils::load("id", true)
                     ], ["id" => SessionUtils::load("id", true)]);
                 }else{
                     App::getDB()->update("users", [
@@ -148,9 +150,17 @@ class UserCtrl {
                         "firstName" => $this->form->firstName,
                         "lastName" => $this->form->lastName,
                         "email" => $this->form->email,
-                        "password" => md5($this->form->newPassword)
+                        "password" => md5($this->form->newPassword),
+                        "updatedAt" => time(),
+                        "updatedBy" => SessionUtils::load("id", true)
                     ], ["id" => SessionUtils::load("id", true)]);
                 }
+
+                //update info in session
+                SessionUtils::store("nickname", $this->form->nickname);
+                SessionUtils::store("firstName", $this->form->firstName);
+                SessionUtils::store("lastName", $this->form->lastName);
+
                 Utils::addInfoMessage("Pomyślnie zaktualizowano konto");
             }catch(PDOException $e){
                 Utils::addErrorMessage("Błąd połączenia z bazą danych");

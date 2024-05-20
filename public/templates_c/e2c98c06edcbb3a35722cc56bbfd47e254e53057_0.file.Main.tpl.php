@@ -1,19 +1,51 @@
+<?php
+/* Smarty version 4.3.4, created on 2024-05-20 14:32:57
+  from 'C:\xampp\htdocs\ig-clone\app\views\templates\Main.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.4',
+  'unifunc' => 'content_664b42f990f979_69431305',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'e2c98c06edcbb3a35722cc56bbfd47e254e53057' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\ig-clone\\app\\views\\templates\\Main.tpl',
+      1 => 1716208376,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_664b42f990f979_69431305 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_loadInheritance();
+$_smarty_tpl->inheritance->init($_smarty_tpl, false);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Instagram clone</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="{url action="assets/favicon.svg"}" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="{url action="style.css"}" />
-    <script src="{url action="script.js"}" defer></script>
+    <link rel="shortcut icon" href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"assets/favicon.svg"),$_smarty_tpl ) );?>
+" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"style.css"),$_smarty_tpl ) );?>
+" />
+    <?php echo '<script'; ?>
+ src="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"script.js"),$_smarty_tpl ) );?>
+" defer><?php echo '</script'; ?>
+>
 </head>
 
 <body>
 <header class="header">
     <nav class="header__content">
         <div class="header__buttons">
-            <a href="{url action="index"}" class="header__home">
+            <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"index"),$_smarty_tpl ) );?>
+" class="header__home">
                 <svg
                         width="104"
                         height="30"
@@ -58,8 +90,11 @@
             </button>
         </div>
 
-        <form action="{url action="search_profile"}" method="get" class="header__search">
-            <input type="text" name="nickname" placeholder="Search" value="{if isset($form->nickname)}{$form->nickname}{/if}"/>
+        <form action="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"search_profile"),$_smarty_tpl ) );?>
+" method="get" class="header__search">
+            <input type="text" name="nickname" placeholder="Search" value="<?php if ((isset($_smarty_tpl->tpl_vars['form']->value->nickname))) {
+echo $_smarty_tpl->tpl_vars['form']->value->nickname;
+}?>"/>
             <svg
                     width="24"
                     height="24"
@@ -80,16 +115,20 @@
         </form>
 
         <div class="header__buttons header__buttons--desktop">
-            <a href="{url action="add_post_show"}" class="profile-button">
+            <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"add_post_show"),$_smarty_tpl ) );?>
+" class="profile-button">
                 <div class="profile-button__border"></div>
                 <div class="profile-button__picture">
-                    <img src="{url action="assets/icons/add.svg"}" alt="Add post" />
+                    <img src="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"assets/icons/add.svg"),$_smarty_tpl ) );?>
+" alt="Add post" />
                 </div>
             </a>
-            <a href="{url action="user_show"}" class="profile-button">
+            <a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"user_show"),$_smarty_tpl ) );?>
+" class="profile-button">
                 <div class="profile-button__border"></div>
                 <div class="profile-button__picture">
-                    <img src="{url action="assets/default-user.png"}" alt="User Picture" />
+                    <img src="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"assets/default-user.png"),$_smarty_tpl ) );?>
+" alt="User Picture" />
                 </div>
             </a>
         </div>
@@ -99,16 +138,28 @@
 <main class="main-container">
     <section class="content-container">
         <div class="content">
-            {block name="main"}{/block}
+            <?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_167370604664b42f9906cd0_92543513', "main");
+?>
+
         </div>
 
         <section class="side-menu">
-            {foreach $msgs->getMessages() as $msg}
-                {strip}
-                    <li class="msg {if $msg->isError()}error{/if} {if $msg->isWarning()}warning{/if} {if $msg->isInfo()}info{/if}">{$msg->text}</li>
-                {/strip}
-            {/foreach}
-            {block name="aside"}{/block}
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['msgs']->value->getMessages(), 'msg');
+$_smarty_tpl->tpl_vars['msg']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['msg']->value) {
+$_smarty_tpl->tpl_vars['msg']->do_else = false;
+?>
+                <li class="msg <?php if ($_smarty_tpl->tpl_vars['msg']->value->isError()) {?>error<?php }?> <?php if ($_smarty_tpl->tpl_vars['msg']->value->isWarning()) {?>warning<?php }?> <?php if ($_smarty_tpl->tpl_vars['msg']->value->isInfo()) {?>info<?php }?>"><?php echo $_smarty_tpl->tpl_vars['msg']->value->text;?>
+</li>
+            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+            <?php 
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1815146829664b42f990e9b6_84706032', "aside");
+?>
+
                 <div class="side-menu__footer">
                     <div class="side-menu__footer-links">
                         <ul class="side-menu__footer-list">
@@ -128,13 +179,33 @@
     </section>
 </main>
 
-{*<nav class="navbar">*}
-{*    <button class="navbar__button profile-button">*}
-{*        <div class="profile-button__border"></div>*}
-{*        <div class="profile-button__picture">*}
-{*            <img src="{url action="assets/default-user.png"}" alt="User Picture" />*}
-{*        </div>*}
-{*    </button>*}
-{*</nav>*}
 </body>
 </html>
+<?php }
+/* {block "main"} */
+class Block_167370604664b42f9906cd0_92543513 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'main' => 
+  array (
+    0 => 'Block_167370604664b42f9906cd0_92543513',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block "main"} */
+/* {block "aside"} */
+class Block_1815146829664b42f990e9b6_84706032 extends Smarty_Internal_Block
+{
+public $subBlocks = array (
+  'aside' => 
+  array (
+    0 => 'Block_1815146829664b42f990e9b6_84706032',
+  ),
+);
+public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
+}
+}
+/* {/block "aside"} */
+}

@@ -5,7 +5,7 @@
 
     <article class="post padding">
         <form class="big" action="">
-            <textarea res></textarea>
+            <textarea></textarea>
             <input type="submit" value="Skomentuj">
         </form>
     </article>

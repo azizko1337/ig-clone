@@ -2,7 +2,7 @@
 
 namespace app\forms;
 
-class SearchUserForm
+class SearchProfileForm
 {
     public $nickname;
 }

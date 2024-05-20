@@ -8,14 +8,14 @@ use core\SessionUtils;
 use core\Utils;
 use core\Validator;
 use PDOException;
-use app\forms\SearchUserForm;
+use app\forms\SearchProfileForm;
 
-class SearchUserCtrl{
+class SearchProfileCtrl{
     private $form;
     private $users;
 
     public function __construct() {
-        $this->form = new SearchUserForm();
+        $this->form = new SearchProfileForm();
         $this->users = array();
     }
 
@@ -50,7 +50,7 @@ class SearchUserCtrl{
         return false;
     }
 
-    public function action_search_user() {
+    public function action_search_profile() {
         if($this->validate()){
             $this->getUsers();
         }

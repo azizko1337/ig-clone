@@ -126,25 +126,27 @@ img {
 
 .header__search {
   width: 216px;
-  height: 28px;
+  height: 35px;
 
   display: none;
   align-items: center;
   position: relative;
 }
 .header__search svg {
-  width: 12px;
-  height: 12px;
+  width: 15px;
+  height: 15px;
 
   position: absolute;
   left: 8px;
+  top: 50%;
+  transform:translateY(-75%);
 }
 .header__search input {
   width: 100%;
   height: 100%;
   background-color: var(--secondary);
 
-  padding: 4px 10px 4px 28px;
+  padding: 12px 10px 12px 28px;
   border: 1px solid var(--border);
   border-radius: 4px;
   outline: none;
@@ -864,6 +866,7 @@ img {
 
   .header__search {
     display: flex;
+    align-items:center;
   }
 
   .header__buttons--mobile {
@@ -942,4 +945,12 @@ form.big{
 }
 form.big input[type="submit"]{
   margin:0;
+}
+
+a{
+  text-decoration: none;
+}
+
+.header__search input{
+  /*padding: 10px 5px;*/
 }

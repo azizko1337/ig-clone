@@ -19,4 +19,10 @@ Utils::addRoute("user_show", 'auth\UserCtrl', ["user"]);
 Utils::addRoute("user", 'auth\UserCtrl', ["user"]);
 Utils::addRoute("user_delete", 'auth\UserCtrl', ["user"]);
 
+Utils::addRoute("add_post_show", "AddPostCtrl", ["user"]);
+Utils::addRoute("add_post", "AddPostCtrl", ["user"]);
+
+Utils::addRoute("search_profile", "SearchProfileCtrl", ["user"]);
+Utils::addRoute("profile", "ProfileCtrl", ["user"]);
+
 //Utils::addRoute('action_name', 'controller_class_name');

@@ -12,17 +12,16 @@
 {block name="aside"}
   <div class="side-menu__user-profile">
     <a
-            href="https://github.com/leocosta1"
-            target="_blank"
+            href="{url action="profile" nickname=$user["nickname"]}"
             class="side-menu__user-avatar"
     >
-      <img src="assets/default-user.png" alt="User Picture" />
+      <img src="assets/default-user.png" alt="{$user["nickname"]}' picture" />
     </a>
     <div class="side-menu__user-info">
-      <a href="https://github.com/leocosta1" target="_blank"
-      >leocosta1</a
+      <a href="{url action="profile" nickname=$user["nickname"]}"
+      >{$user["nickname"]}</a
       >
-      <span>Leonardo Costa</span>
+      <span>{$user["firstName"]} {$user["lastName"]}</span>
     </div>
   </div>
 

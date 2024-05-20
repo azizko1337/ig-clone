@@ -86,7 +86,7 @@ class RegisterCtrl {
 
         if(App::getMessages()->isError()) return false;
 
-        //add user
+        //check if unique
         try {
             $isNicknameOccupied = App::getDB()->has("users", ["nickname" => $this->form->nickname]);
             $isEmailOccupied = App::getDB()->has("users", ["email" => $this->form->email]);
@@ -96,6 +96,16 @@ class RegisterCtrl {
 
             if(App::getMessages()->isError()) return false;
 
+
+        }catch(PDOException $e){
+            Utils::addErrorMessage("Błąd połączenia z bazą danych");
+        }
+
+        return !App::getMessages()->isError();
+    }
+
+    private function addUser(){
+        try{
             App::getDB()->insert("users", [
                 "nickname" => $this->form->nickname,
                 "firstName" => $this->form->firstName,
@@ -110,18 +120,20 @@ class RegisterCtrl {
 
             //add default role
             App::getDB()->insert("user_role", ["user_id" => $this->user_data["id"], "role_name" => "user"]);
+
+            return true;
         }catch(PDOException $e){
             Utils::addErrorMessage("Błąd połączenia z bazą danych lub wewnętrzny błąd aplikacji spowodwany niespójnością uprawnień");
         }
-
-        return !App::getMessages()->isError();
+        return false;
     }
 
     public function action_register_show() {
         $this->generateView();
     }
     public function action_register() {
-        if($this->validate()){
+        if($this->validate() && $this->addUser()){
+
             App::getRouter()->redirectTo("login_show");
         }else{
             $this->form->password = "";
