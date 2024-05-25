@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2024 at 11:36 AM
+-- Generation Time: May 25, 2024 at 01:56 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -90,6 +90,14 @@ CREATE TABLE `roles` (
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`name`, `createdAt`, `updatedAt`) VALUES
+('moderator', '2024-05-19 12:53:30', '2024-05-19 12:53:30'),
+('user', '2024-05-19 12:53:21', '2024-05-19 12:53:21');
+
 -- --------------------------------------------------------
 
 --
@@ -104,9 +112,9 @@ CREATE TABLE `users` (
   `email` text NOT NULL,
   `password` text NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
-  `createdBy` int(11) NOT NULL,
+  `createdBy` int(11) DEFAULT NULL,
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updatedBy` int(11) NOT NULL
+  `updatedBy` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -114,7 +122,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nickname`, `firstName`, `lastName`, `email`, `password`, `createdAt`, `createdBy`, `updatedAt`, `updatedBy`) VALUES
-(1, 'admin', 'John', 'Cube', 'johncube@admin.com', 'admin', '2024-05-19 09:35:59', 1, '2024-05-19 09:35:59', 1);
+(10, 'admin1', 'admin1', 'admin1', 'admin12@admin.com', 'e00cf25ad42683b3df678c61f42c6bda', '2024-05-19 19:57:19', 10, '2024-05-19 19:57:19', 10),
+(11, 'admin3', 'admin3', 'admin3', 'admin3@admin3.pl', '32cacb2f994f6b42183a1300d9a3e8d6', '2024-05-19 19:58:01', 11, '2024-05-19 19:58:01', 11);
 
 -- --------------------------------------------------------
 
@@ -129,6 +138,14 @@ CREATE TABLE `user_role` (
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_role`
+--
+
+INSERT INTO `user_role` (`id`, `user_id`, `role_name`, `createdAt`, `updatedAt`) VALUES
+(6, 10, 'user', '2024-05-19 19:57:19', '2024-05-19 19:57:19'),
+(7, 11, 'user', '2024-05-19 19:58:01', '2024-05-19 19:58:01');
 
 --
 -- Indexes for dumped tables
@@ -201,31 +218,31 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `follows`
 --
 ALTER TABLE `follows`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `user_role`
 --
 ALTER TABLE `user_role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
@@ -251,6 +268,12 @@ ALTER TABLE `follows`
 ALTER TABLE `likes`
   ADD CONSTRAINT `likes_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `posts`
+--
+ALTER TABLE `posts`
+  ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `users`

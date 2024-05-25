@@ -1,7 +1,7 @@
 # ig-clone
 ### Uniwersytet Śląski - projekt
 
-Projekt zaliczeniowy przedmitów: Języki Programowania Dynamicznych Stron Internetowych oraz Projektowanie Bazodanowych Aplikacji Webowych.
+Projekt zaliczeniowy przedmiotów: Języki Programowania Dynamicznych Stron Internetowych oraz Projektowanie Bazodanowych Aplikacji Webowych.
 
 
 
@@ -22,3 +22,6 @@ Projekt zaliczeniowy przedmitów: Języki Programowania Dynamicznych Stron Inter
 
 ## Schemat bazy danych:
 ![Schemat bazy danych](https://github.com/azizko1337/ig-clone/blob/main/db-scheme/ig-clone.svg?raw=true)
+
+## Deployment, wskazówki:
+- Aby Amelia-Framework działała, należy uruchomić na serwerze Apache2 mod_rewrite, przy pomocy polecenia `sudo a2enmod rewrite`

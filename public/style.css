@@ -216,7 +216,7 @@ img {
   display: flex;
   flex: 1;
 
-  align-items:center;
+  align-items:flex-start;
 /*  ADDEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEED ADDED*/
 }
 
@@ -475,6 +475,11 @@ img {
   cursor: pointer;
 
   padding: 8px;
+  width:36px;
+  height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .post__button--align-right {
   margin-left: auto;

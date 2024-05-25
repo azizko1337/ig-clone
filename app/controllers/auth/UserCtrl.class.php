@@ -179,7 +179,7 @@ class UserCtrl {
             try {
                 if (App::getDB()->has("users", ["id" => SessionUtils::load("id", true), "password" => md5($this->form->password)])) {
                     App::getDB()->delete("users", ["id" => SessionUtils::load("id", true)]);
-                    App::getRouter()->redirectTo("index");
+                    App::getRouter()->forwardTo("logout");
                 } else {
                     Utils::addErrorMessage("Błedne hasło");
                 }

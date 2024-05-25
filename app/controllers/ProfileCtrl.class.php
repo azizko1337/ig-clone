@@ -62,6 +62,7 @@ class ProfileCtrl
             for($i=0; $i<count($this->posts); $i++){
                 $this->posts[$i]["likes"] = App::getDB()->count("likes", ["post_id" => $this->posts[$i]["id"]]);
                 $this->posts[$i]["comments"] = App::getDB()->count("comments", ["post_id" => $this->posts[$i]["id"]]);
+                $this->posts[$i]["is_liked"] = App::getDB()->count("likes", ["post_id" => $this->posts[$i]["id"], "user_id" => SessionUtils::load("id", true)])>0;
             }
         }catch(PDOException $e){
             Utils::addErrorMessage("Błąd połączenia z bazą danych");
