@@ -27,4 +27,6 @@ Utils::addRoute("profile", "ProfileCtrl", ["user"]);
 
 Utils::addRoute("like", "LikeCtrl", ["user"]);
 
+Utils::addRoute("follow", "FollowCtrl", ["user"]);
+
 //Utils::addRoute('action_name', 'controller_class_name');

@@ -959,3 +959,6 @@ a{
 .header__search input{
   /*padding: 10px 5px;*/
 }
+p{
+  color: var(--text-dark);
+}

@@ -53,9 +53,19 @@ async function likePost(postId){
   document.getElementById(`${postId}likes`).innerText = data?.likes || 0;
   document.getElementById(`${postId}comments`).innerText = data?.comments || 0;
 
-  if(data.liked){
+  if(data?.liked){
     document.getElementById(`${postId}likeimg`).src = `${URL}assets/icons/heart-filled.png`;
   }else{
     document.getElementById(`${postId}likeimg`).src = `${URL}assets/icons/heart.png`;
   }
+}
+
+
+
+async function followUser(userId){
+  const res = await fetch(`${URL}follow?user_id=${userId}`);
+  const data = await res.json();
+  console.log(data);
+
+  document.getElementById(`${userId}isfollowed`).innerText = data?.followed ? "Unfollow" : "Follow";
 }

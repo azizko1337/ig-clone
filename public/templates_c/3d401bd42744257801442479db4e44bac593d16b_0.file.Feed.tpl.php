@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-05-25 15:19:05
+/* Smarty version 4.3.4, created on 2024-05-26 13:17:58
   from 'C:\xampp\htdocs\ig-clone\app\views\components\Feed.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_6651e549b42844_69432341',
+  'unifunc' => 'content_66531a6601efd1_30142112',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3d401bd42744257801442479db4e44bac593d16b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ig-clone\\app\\views\\components\\Feed.tpl',
-      1 => 1716643140,
+      1 => 1716722252,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6651e549b42844_69432341 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66531a6601efd1_30142112 (Smarty_Internal_Template $_smarty_tpl) {
+if (count($_smarty_tpl->tpl_vars['posts']->value) > 0) {?>
+
+    <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['posts']->value, 'post');
 $_smarty_tpl->tpl_vars['post']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['post']->value) {
 $_smarty_tpl->tpl_vars['post']->do_else = false;
 ?>
-<article class="post"><div class="post__header"><div class="post__profile"><a href="<?php ob_start();
+        <article class="post"><div class="post__header"><div class="post__profile"><a href="<?php ob_start();
 echo $_smarty_tpl->tpl_vars['post']->value["nickname"];
 $_prefixVariable1 = ob_get_clean();
 echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"profile",'nickname'=>$_prefixVariable1),$_smarty_tpl ) );?>
@@ -57,8 +60,14 @@ comments"><?php echo $_smarty_tpl->tpl_vars['post']->value["comments"];?>
 </a> <?php echo $_smarty_tpl->tpl_vars['post']->value["body"];?>
  </span></div><span class="post__date-time">Zapostowano <?php echo $_smarty_tpl->tpl_vars['post']->value["createdAt"];?>
 </span></div></div></article>
-<?php
+    <?php
 }
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+
+<?php } else { ?>
+
+    <p>Brak postów do wyświetlenia.</p>
+
+<?php }
 }
 }

@@ -36,6 +36,11 @@ class ProfileCtrl
     private function getUser(){
         try{
             $this->user = App::getDB()->get("users", ["id", "nickname", "firstName", "lastName"], ["nickname" => $this->user["nickname"]]);
+
+            $this->user["is_followed"] = App::getDB()->count("follows", [
+                "following_user_id" => SessionUtils::load("id", true),
+                "followed_user_id" => $this->user["id"]
+            ])>0;
         }
         catch(PDOException $e){
             Utils::addErrorMessage("Błąd połączenia z bazą danych");
@@ -56,7 +61,10 @@ class ProfileCtrl
                     "posts.createdAt"
                 ], [
                     "user_id" => $this->user["id"],
-                    "LIMIT" => 10
+                    "LIMIT" => 10,
+                    "ORDER" => [
+                        "posts.createdAt" => "DESC"
+                    ]
                 ]);
 
             for($i=0; $i<count($this->posts); $i++){
