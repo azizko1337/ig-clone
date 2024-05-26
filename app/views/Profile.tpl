@@ -15,7 +15,9 @@
                 >
                 <span>{$user["firstName"]} {$user["lastName"]}</span>
             </div>
-            <button id="{$user["id"]|cat:"isfollowed"}" onClick="followUser({$user["id"]})" class="side-menu__suggestion-button">{if $user["is_followed"]}Unfollow{else}Follow{/if}</button>
+            {if $user["id"]!=\core\SessionUtils::load("id", true)}
+                <button id="{$user["id"]|cat:"isfollowed"}" onClick="followUser({$user["id"]})" class="side-menu__suggestion-button">{if $user["is_followed"]}Unfollow{else}Follow{/if}</button>
+            {/if}
         </div>
     {/if}
     {include "components/Feed.tpl"}

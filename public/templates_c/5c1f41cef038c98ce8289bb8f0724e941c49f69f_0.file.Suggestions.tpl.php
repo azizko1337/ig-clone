@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-05-25 15:27:58
+/* Smarty version 4.3.4, created on 2024-05-26 18:06:17
   from 'C:\xampp\htdocs\ig-clone\app\views\components\Suggestions.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_6651e75ecfe407_47530977',
+  'unifunc' => 'content_66535df98d9b05_07486362',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5c1f41cef038c98ce8289bb8f0724e941c49f69f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ig-clone\\app\\views\\components\\Suggestions.tpl',
-      1 => 1716643677,
+      1 => 1716739571,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6651e75ecfe407_47530977 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66535df98d9b05_07486362 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="side-menu__suggestions-section">
     <?php if (count($_smarty_tpl->tpl_vars['suggestions']->value) > 0) {?>
         <div class="side-menu__suggestions-header">
@@ -33,13 +33,13 @@ $_smarty_tpl->tpl_vars['suggestion']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['suggestion']->value) {
 $_smarty_tpl->tpl_vars['suggestion']->do_else = false;
 ?>
-                <div class="side-menu__suggestion"><a href="profile/<?php echo $_smarty_tpl->tpl_vars['suggestion']->value["nickname"];?>
+                <div class="side-menu__suggestion"><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"profile",'nickname'=>$_smarty_tpl->tpl_vars['suggestion']->value["nickname"]),$_smarty_tpl ) );?>
 " class="side-menu__suggestion-avatar"><img src="assets/default-user.png" alt="<?php echo $_smarty_tpl->tpl_vars['suggestion']->value["nickname"];?>
- picture" /></a><div class="side-menu__suggestion-info"><a href="profile/<?php echo $_smarty_tpl->tpl_vars['suggestion']->value["nickname"];?>
+ picture" /></a><div class="side-menu__suggestion-info"><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"profile",'nickname'=>$_smarty_tpl->tpl_vars['suggestion']->value["nickname"]),$_smarty_tpl ) );?>
 "><?php echo $_smarty_tpl->tpl_vars['suggestion']->value["nickname"];?>
 </a><span><?php echo $_smarty_tpl->tpl_vars['suggestion']->value["firstName"];?>
  <?php echo $_smarty_tpl->tpl_vars['suggestion']->value["lastName"];?>
-</span></div><a href="profile/<?php echo $_smarty_tpl->tpl_vars['suggestion']->value["nickname"];?>
+</span></div><a href="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"profile",'nickname'=>$_smarty_tpl->tpl_vars['suggestion']->value["nickname"]),$_smarty_tpl ) );?>
 " class="side-menu__suggestion-button">Profile</a></div>
             <?php
 }

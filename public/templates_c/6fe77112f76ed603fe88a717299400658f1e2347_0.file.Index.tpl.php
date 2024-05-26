@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.4, created on 2024-05-20 15:19:49
+/* Smarty version 4.3.4, created on 2024-05-26 18:05:25
   from 'C:\xampp\htdocs\ig-clone\app\views\Index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.4',
-  'unifunc' => 'content_664b4df545c920_90703773',
+  'unifunc' => 'content_66535dc5b5fa75_72485844',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6fe77112f76ed603fe88a717299400658f1e2347' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ig-clone\\app\\views\\Index.tpl',
-      1 => 1716211188,
+      1 => 1716739523,
       2 => 'file',
     ),
   ),
@@ -22,28 +22,28 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:components/Suggestions.tpl' => 1,
   ),
 ),false)) {
-function content_664b4df545c920_90703773 (Smarty_Internal_Template $_smarty_tpl) {
+function content_66535dc5b5fa75_72485844 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1975760320664b4df544f880_55272408', "main");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_49987652366535dc5b52894_81820341', "main");
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_914751364664b4df5453642_23402969', "aside");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_31940332366535dc5b56053_41080246', "aside");
 $_smarty_tpl->inheritance->endChild($_smarty_tpl, "templates/Main.tpl");
 }
 /* {block "main"} */
-class Block_1975760320664b4df544f880_55272408 extends Smarty_Internal_Block
+class Block_49987652366535dc5b52894_81820341 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'main' => 
   array (
-    0 => 'Block_1975760320664b4df544f880_55272408',
+    0 => 'Block_49987652366535dc5b52894_81820341',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -61,12 +61,12 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 /* {/block "main"} */
 /* {block "aside"} */
-class Block_914751364664b4df5453642_23402969 extends Smarty_Internal_Block
+class Block_31940332366535dc5b56053_41080246 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'aside' => 
   array (
-    0 => 'Block_914751364664b4df5453642_23402969',
+    0 => 'Block_31940332366535dc5b56053_41080246',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -78,7 +78,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 "
             class="side-menu__user-avatar"
     >
-      <img src="assets/default-user.png" alt="<?php echo $_smarty_tpl->tpl_vars['user']->value["nickname"];?>
+      <img src="<?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['url'][0], array( array('action'=>"assets",'asset'=>"default-user.png"),$_smarty_tpl ) );?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['user']->value["nickname"];?>
 ' picture" />
     </a>
     <div class="side-menu__user-info">

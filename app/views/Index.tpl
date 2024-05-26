@@ -15,7 +15,7 @@
             href="{url action="profile" nickname=$user["nickname"]}"
             class="side-menu__user-avatar"
     >
-      <img src="assets/default-user.png" alt="{$user["nickname"]}' picture" />
+      <img src="{url action="assets" asset="default-user.png"}" alt="{$user["nickname"]}' picture" />
     </a>
     <div class="side-menu__user-info">
       <a href="{url action="profile" nickname=$user["nickname"]}"

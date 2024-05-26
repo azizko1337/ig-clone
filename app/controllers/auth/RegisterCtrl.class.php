@@ -133,8 +133,8 @@ class RegisterCtrl {
     }
     public function action_register() {
         if($this->validate() && $this->addUser()){
-
-            App::getRouter()->redirectTo("login_show");
+            Utils::addInfoMessage("Pomyślnie utworzono konto. Możesz się zalogować.");
+            App::getRouter()->forwardTo("login_show");
         }else{
             $this->form->password = "";
             $this->form->repeatedPassword = "";

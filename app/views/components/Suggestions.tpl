@@ -7,14 +7,14 @@
             {foreach $suggestions as $suggestion}
                 {strip}
                     <div class="side-menu__suggestion">
-                        <a href="profile/{$suggestion["nickname"]}" class="side-menu__suggestion-avatar">
+                        <a href="{url action="profile" nickname=$suggestion["nickname"]}" class="side-menu__suggestion-avatar">
                             <img src="assets/default-user.png" alt="{$suggestion["nickname"]} picture" />
                         </a>
                         <div class="side-menu__suggestion-info">
-                            <a href="profile/{$suggestion["nickname"]}">{$suggestion["nickname"]}</a>
+                            <a href="{url action="profile" nickname=$suggestion["nickname"]}">{$suggestion["nickname"]}</a>
                             <span>{$suggestion["firstName"]} {$suggestion["lastName"]}</span>
                         </div>
-                        <a href="profile/{$suggestion["nickname"]}" class="side-menu__suggestion-button">Profile</a>
+                        <a href="{url action="profile" nickname=$suggestion["nickname"]}" class="side-menu__suggestion-button">Profile</a>
                     </div>
                 {/strip}
             {/foreach}

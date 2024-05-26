@@ -20,6 +20,10 @@ class FollowCtrl
         $this->followed_user_id = ParamUtils::getFromRequest('user_id');
     }
 
+    private function validate(){
+        return $this->following_user_id != $this->followed_user_id;
+    }
+
     private function isUserFollowed(){
         try{
             $follow = App::getDB()->count("follows", [
@@ -58,16 +62,21 @@ class FollowCtrl
     public function action_follow(){
         $this->getParams();
 
-        $isUserFollowed = $this->isUserFollowed();
-        if($isUserFollowed){
-            $this->unfollowUser();
-        }else{
-            $this->followUser();
-        }
+        if($this->validate()){
+            $isUserFollowed = $this->isUserFollowed();
+            if($isUserFollowed){
+                $this->unfollowUser();
+            }else{
+                $this->followUser();
+            }
 
-        $response = array("followed" => !$isUserFollowed);
+            $response = array("followed" => !$isUserFollowed);
+        }else{
+            $response = array("followed" => false);
+        }
         header('Content-type: application/json');
         echo json_encode($response);
         exit();
+
     }
 }

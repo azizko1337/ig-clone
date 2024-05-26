@@ -962,3 +962,22 @@ a{
 p{
   color: var(--text-dark);
 }
+form.big>div{
+  width:100%;
+}
+a.post__name--underline{
+  margin-right:5px;
+}
+
+div.delete_comment{
+  display:flex;
+  justify-content:flex-end;
+}
+div.delete_comment>a{
+  width:15px;
+  height:15px;
+  cursor:pointer;
+}
+div.delete_comment>a:hover>img{
+  filter: invert(40%);
+}

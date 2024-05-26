@@ -25,6 +25,11 @@ Utils::addRoute("add_post", "AddPostCtrl", ["user"]);
 Utils::addRoute("search_profile", "SearchProfileCtrl", ["user"]);
 Utils::addRoute("profile", "ProfileCtrl", ["user"]);
 
+Utils::addRoute("comment_show", "CommentCtrl", ["user"]);
+Utils::addRoute("comment_add", "CommentCtrl", ["user"]);
+Utils::addRoute("comment_delete", "CommentCtrl", ["user"]);
+
+
 Utils::addRoute("like", "LikeCtrl", ["user"]);
 
 Utils::addRoute("follow", "FollowCtrl", ["user"]);
