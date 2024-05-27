@@ -2,7 +2,7 @@
 
 {block name="main"}
     <h1>Wyniki wyszukiwania:</h1>
-    {if count($users)>0}
+    {if isset($users) && count($users)>0}
         {foreach $users as $user}
         {strip}
             <div class="side-menu__user-profile">

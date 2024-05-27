@@ -3,46 +3,30 @@
 namespace app\controllers;
 
 use core\App;
+use core\ParamUtils;
 use core\Utils;
 use core\SessionUtils;
 use \PDOException;
 
-class IndexCtrl {
-    private $suggestions;
+class FeedCtrl {
     private $posts;
+    private $page;
+    private $size = 2;
 
-    private function getSuggestions(){
-        try{
-            //random users different from logged user
-//            $this->suggestions = App::getDB()->rand("users", ["nickname", "firstName", "lastName"], ["id[!]" => SessionUtils::load("id", true), "LIMIT" => 7]);
+    private function getPage(){
+        $this->page = ParamUtils::getFromCleanURL(1, false);
+    }
 
-            //users who logged user doesnt follow
-            $followed_users = App::getDB()->select("follows", "@followed_user_id", [
-                "following_user_id" => SessionUtils::load("id", true)
-            ]);
-
-            //add myself to followed_users to prevent displaying me
-            $followed_users[] = SessionUtils::load("id", true);
-
-            if(count($followed_users)>0){
-                $this->suggestions = App::getDB()->rand("users", ["nickname", "firstName", "lastName"], [
-                    "id[!]" => $followed_users,
-                    "LIMIT" => 7
-                ]);
-            }
-
-        }catch(PDOException $e){
-            Utils::addErrorMessage("Błąd bazy danych, nie udało się pobrać sugerownych użytkowników");
-            $this->suggestions = array();
-        }
+    private function validate(){
+        return is_numeric($this->page);
     }
 
     private function getPosts(){
         try{
             //we have to check if there ale followed users before (error occurs if not)
             if(App::getDB()->count("follows", "followed_user_id",  [
-                "following_user_id" => SessionUtils::load("id", true)
-            ])>0){
+                    "following_user_id" => SessionUtils::load("id", true)
+                ])>0){
 
                 $this->posts = App::getDB()->select("posts",
                     [
@@ -58,7 +42,7 @@ class IndexCtrl {
                         "user_id" => App::getDB()->select("follows", "followed_user_id",  [
                             "following_user_id" => SessionUtils::load("id", true)
                         ]),
-                        "LIMIT" => 2,
+                        "LIMIT" => [($this->size*$this->page), $this->size],
                         "ORDER" => [
                             "posts.createdAt" => "DESC"
                         ]
@@ -83,23 +67,17 @@ class IndexCtrl {
         }
     }
 
-    public function action_index() {
-        $this->getSuggestions();
-        $this->getPosts();
+    public function action_feed() {
+        $this->getPage();
+        if($this->validate()){
+            $this->getPosts();
+        }
         $this->generateView();
     }
 
     public function generateView(){
-        App::getSmarty()->assign("suggestions", $this->suggestions);
         App::getSmarty()->assign("posts", $this->posts);
-        App::getSmarty()->assign("user", array(
-            "id" => SessionUtils::load("id", true),
-            "nickname" => SessionUtils::load("nickname", true),
-            "firstName" => SessionUtils::load("firstName", true),
-            "lastName" => SessionUtils::load("lastName", true),
-        ));
-
-        App::getSmarty()->display("Index.tpl");
+        App::getSmarty()->display("components/Feed.tpl");
     }
 
 }

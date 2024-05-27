@@ -18,7 +18,7 @@ Projekt zaliczeniowy przedmiotów: Języki Programowania Dynamicznych Stron Inte
 
 ## Role:
 - `user` - klasyczny użytkownik, docelowo może dodawać, edytować, komentować posty, dodawać/usuwać polubienia, dodawać/usuwać komentarze
-- `moderator` - może usunąć dowolny post
+- `moderator` - może usunąć dowolny post lub komentarz
 
 ## Schemat bazy danych:
 ![Schemat bazy danych](https://github.com/azizko1337/ig-clone/blob/main/db-scheme/ig-clone.svg?raw=true)

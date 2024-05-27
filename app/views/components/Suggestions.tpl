@@ -8,7 +8,7 @@
                 {strip}
                     <div class="side-menu__suggestion">
                         <a href="{url action="profile" nickname=$suggestion["nickname"]}" class="side-menu__suggestion-avatar">
-                            <img src="assets/default-user.png" alt="{$suggestion["nickname"]} picture" />
+                            <img src="{url action="assets" asset="default-user.png"}" alt="{$suggestion["nickname"]} picture" />
                         </a>
                         <div class="side-menu__suggestion-info">
                             <a href="{url action="profile" nickname=$suggestion["nickname"]}">{$suggestion["nickname"]}</a>

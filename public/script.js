@@ -69,3 +69,5 @@ async function followUser(userId){
 
   document.getElementById(`${userId}isfollowed`).innerText = data?.followed ? "Unfollow" : "Follow";
 }
+
+

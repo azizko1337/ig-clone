@@ -981,3 +981,40 @@ div.delete_comment>a{
 div.delete_comment>a:hover>img{
   filter: invert(40%);
 }
+
+.errors{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+}
+
+.errors>.msg{
+  padding: 10px 15px 10px 5px;
+}
+
+.errors>.error{
+  background-color:lightcoral;
+  color:white;
+}
+.errors>.warning{
+  background-color:darkorange;
+  color:white;
+}
+.errors>.info{
+  background-color:darkcyan;
+  color:white;
+}
+
+
+
+form.right{
+  padding:15px;
+  width:100%;
+  display:flex;
+  flex-direction: row;
+  justify-content:flex-end;
+}
+form.right input{
+  max-width:200px;
+}

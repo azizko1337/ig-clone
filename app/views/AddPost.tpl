@@ -6,7 +6,7 @@
             <div class="post__medias">
                 <img
                         class="post__media"
-                        src="assets/insta-clone.png"
+                        src="{url action="assets" asset="insta-clone.png"}"
                         alt="Post Content"
                 />
             </div>

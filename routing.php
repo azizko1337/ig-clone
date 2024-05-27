@@ -8,6 +8,8 @@ App::getRouter()->setLoginRoute('logout'); #action to forward if no permissions
 
 Utils::addRoute('index', 'IndexCtrl', ["user"]);
 
+Utils::addRoute('feed', 'FeedCtrl', ["user"]);
+
 Utils::addRoute('login', 'auth\LoginCtrl');
 Utils::addRoute('login_show', 'auth\LoginCtrl');
 Utils::addRoute('logout', 'auth\LoginCtrl');
@@ -29,6 +31,9 @@ Utils::addRoute("comment_show", "CommentCtrl", ["user"]);
 Utils::addRoute("comment_add", "CommentCtrl", ["user"]);
 Utils::addRoute("comment_delete", "CommentCtrl", ["user"]);
 
+Utils::addRoute("edit_post_show", "EditPostCtrl", ["user"]);
+Utils::addRoute("edit_post", "EditPostCtrl", ["user"]);
+Utils::addRoute("delete_post", "EditPostCtrl", ["user"]);
 
 Utils::addRoute("like", "LikeCtrl", ["user"]);
 

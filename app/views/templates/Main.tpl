@@ -21,69 +21,86 @@
 
             </a>
 
-            <button class="header__theme-button" title="Toggle Theme">
-                <svg
-                        class="header__theme-button-moon"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        fill="var(--text-dark)"
-                        viewBox="0 0 16 16"
-                >
-                    <path
-                            d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"
-                    />
-                </svg>
-                <svg
-                        class="header__theme-button-sun"
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        fill="var(--text-dark)"
-                        viewBox="0 0 16 16"
-                >
-                    <path
-                            d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
-                    />
-                </svg>
-            </button>
+{*            <button class="header__theme-button" title="Toggle Theme">*}
+{*                <svg*}
+{*                        class="header__theme-button-moon"*}
+{*                        xmlns="http://www.w3.org/2000/svg"*}
+{*                        width="24"*}
+{*                        height="24"*}
+{*                        fill="var(--text-dark)"*}
+{*                        viewBox="0 0 16 16"*}
+{*                >*}
+{*                    <path*}
+{*                            d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"*}
+{*                    />*}
+{*                </svg>*}
+{*                <svg*}
+{*                        class="header__theme-button-sun"*}
+{*                        xmlns="http://www.w3.org/2000/svg"*}
+{*                        width="24"*}
+{*                        height="24"*}
+{*                        fill="var(--text-dark)"*}
+{*                        viewBox="0 0 16 16"*}
+{*                >*}
+{*                    <path*}
+{*                            d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"*}
+{*                    />*}
+{*                </svg>*}
+{*            </button>*}
         </div>
 
-        <form action="{url action="search_profile"}" method="get" class="header__search">
-            <input type="text" name="nickname" placeholder="Search" value="{if isset($form->nickname)}{$form->nickname}{/if}"/>
-            <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
-                        d="M21.669 21.6543C21.8625 21.4622 21.863 21.1494 21.6703 20.9566L17.3049 16.5913C18.7912 14.9327 19.7017 12.7525 19.7017 10.3508C19.7017 5.18819 15.5135 1 10.3508 1C5.18819 1 1 5.18819 1 10.3508C1 15.5135 5.18819 19.7017 10.3508 19.7017C12.7624 19.7017 14.9475 18.7813 16.606 17.2852L20.9739 21.653C21.1657 21.8449 21.4765 21.8454 21.669 21.6543ZM1.9843 10.3508C1.9843 5.7394 5.7394 1.9843 10.3508 1.9843C14.9623 1.9843 18.7174 5.7394 18.7174 10.3508C18.7174 14.9623 14.9623 18.7174 10.3508 18.7174C5.7394 18.7174 1.9843 14.9623 1.9843 10.3508Z"
-                        fill="#A5A5A5"
-                        stroke="#A5A5A5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                />
-            </svg>
-        </form>
+        {if \core\RoleUtils::inRole("user")}
+            <form action="{url action="search_profile"}" method="get" class="header__search">
+                <input type="text" name="nickname" placeholder="Wyszukaj użytkownika" value="{if isset($form->nickname)}{$form->nickname}{/if}"/>
+                <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M21.669 21.6543C21.8625 21.4622 21.863 21.1494 21.6703 20.9566L17.3049 16.5913C18.7912 14.9327 19.7017 12.7525 19.7017 10.3508C19.7017 5.18819 15.5135 1 10.3508 1C5.18819 1 1 5.18819 1 10.3508C1 15.5135 5.18819 19.7017 10.3508 19.7017C12.7624 19.7017 14.9475 18.7813 16.606 17.2852L20.9739 21.653C21.1657 21.8449 21.4765 21.8454 21.669 21.6543ZM1.9843 10.3508C1.9843 5.7394 5.7394 1.9843 10.3508 1.9843C14.9623 1.9843 18.7174 5.7394 18.7174 10.3508C18.7174 14.9623 14.9623 18.7174 10.3508 18.7174C5.7394 18.7174 1.9843 14.9623 1.9843 10.3508Z"
+                            fill="#A5A5A5"
+                            stroke="#A5A5A5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                    />
+                </svg>
+            </form>
 
+            <div class="header__buttons header__buttons--desktop">
+                <a href="{url action="add_post_show"}" class="profile-button">
+                    <div class="profile-button__border"></div>
+                    <div class="profile-button__picture">
+                        <img src="{url action="assets/icons/add.svg"}" alt="Add post" />
+                    </div>
+                </a>
+                <a href="{url action="user_show"}" class="profile-button">
+                    <div class="profile-button__border"></div>
+                    <div class="profile-button__picture">
+                        <img src="{url action="assets/default-user.png"}" alt="User Picture" />
+                    </div>
+                </a>
+            </div>
+        {else}
         <div class="header__buttons header__buttons--desktop">
-            <a href="{url action="add_post_show"}" class="profile-button">
+            <a href="{url action="register_show"}" class="profile-button">
                 <div class="profile-button__border"></div>
                 <div class="profile-button__picture">
                     <img src="{url action="assets/icons/add.svg"}" alt="Add post" />
                 </div>
             </a>
-            <a href="{url action="user_show"}" class="profile-button">
+            <a href="{url action="login_show"}" class="profile-button">
                 <div class="profile-button__border"></div>
                 <div class="profile-button__picture">
                     <img src="{url action="assets/default-user.png"}" alt="User Picture" />
                 </div>
             </a>
         </div>
+        {/if}
     </nav>
 </header>
 
@@ -94,11 +111,13 @@
         </div>
 
         <section class="side-menu">
-            {foreach $msgs->getMessages() as $msg}
-                {strip}
-                    <li class="msg {if $msg->isError()}error{/if} {if $msg->isWarning()}warning{/if} {if $msg->isInfo()}info{/if}">{$msg->text}</li>
-                {/strip}
-            {/foreach}
+            <ul class="errors">
+                {foreach $msgs->getMessages() as $msg}
+                    {strip}
+                        <li class="msg {if $msg->isError()}error{/if} {if $msg->isWarning()}warning{/if} {if $msg->isInfo()}info{/if}">{$msg->text}</li>
+                    {/strip}
+                {/foreach}
+            </ul>
             {block name="aside"}{/block}
                 <div class="side-menu__footer">
                     <div class="side-menu__footer-links">

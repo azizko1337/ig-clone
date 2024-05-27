@@ -61,7 +61,6 @@ class ProfileCtrl
                     "posts.createdAt"
                 ], [
                     "user_id" => $this->user["id"],
-                    "LIMIT" => 10,
                     "ORDER" => [
                         "posts.createdAt" => "DESC"
                     ]

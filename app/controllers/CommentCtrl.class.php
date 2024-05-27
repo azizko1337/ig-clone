@@ -140,6 +140,7 @@ class CommentCtrl{
                 "post_id" => $this->post_id,
                 "body" => $this->form->body
             ]);
+            Utils::addInfoMessage("Dodano komentarz");
         }catch(PDOException $e){
             Utils::addErrorMessage("Błąd połączenia z bazą danych, nie udało się dodać komentarza");
         }
@@ -170,6 +171,7 @@ class CommentCtrl{
         $this->getPost();
         if(!App::getMessages()->isError() && $this->validateAdd()){
             $this->addComment();
+            $this->form->body = "";
         }
 
         $this->getComments();
